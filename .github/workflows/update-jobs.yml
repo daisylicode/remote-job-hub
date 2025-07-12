@@ -1,0 +1,40 @@
+name: Update Job Data
+
+on:
+  schedule:
+    # 每天凌晨2点运行
+    - cron: '0 2 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update-jobs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml
+        
+    - name: Run scrapers
+      run: |
+        python3 remoteok_scrape.py
+        python3 remoteco_scrape.py
+        python3 weworkremotely_scrape.py
+        python3 workingnomads_scrape.py
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add results/
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update job data $(date +'%Y-%m-%d %H:%M:%S')"
+        git push 

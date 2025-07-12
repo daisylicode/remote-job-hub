@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Job Opportunities Aggregator</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP2ZRTBCZ8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JP2ZRTBCZ8');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .controls {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .jobs-container {
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .job-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            line-height: 1.4;
+        }
+
+        .job-title:hover {
+            color: #667eea;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .company {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .source-badge {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .source-remoteok {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .source-remoteco {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .source-weworkremotely {
+            background: #e8f5e8;
+            color: #388e3c;
+        }
+
+        .source-workingnomads {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .date {
+            color: #6c757d;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                padding: 20px;
+            }
+
+            .search-filter {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .jobs-container {
+                padding: 20px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .job-meta {
+                gap: 15px;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 Remote Job Opportunities Aggregator</h1>
+            <p>The latest job postings from multiple well-known remote job platforms</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalJobs">0</span>
+                    <span>Total Jobs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalCompanies">0</span>
+                    <span>Companies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="sources">4</span>
+                    <span>Sources</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-filter">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search job title, company..." />
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-source="all">All Sources</button>
+                    <button class="filter-btn" data-source="remoteok">RemoteOK</button>
+                    <button class="filter-btn" data-source="remoteco">Remote.co</button>
+                    <button class="filter-btn" data-source="weworkremotely">WeWorkRemotely</button>
+                    <button class="filter-btn" data-source="workingnomads">Working Nomads</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs-container" id="jobsContainer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading job data...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allJobs = [];
+        let filteredJobs = [];
+        let currentSourceFilter = 'all';
+        let currentSearchTerm = '';
+
+        // 日期格式标准化函数
+        function normalizeDate(dateStr) {
+            if (!dateStr) return 'Unknown';
+            
+            // 转换为小写并去除空格
+            const normalized = dateStr.toLowerCase().trim();
+            
+            // 处理 "NEW" 格式
+            if (normalized === 'new') {
+                return 'NEW';
+            }
+            // 处理 "20h", "5h", "1h" 等格式，全部映射为NEW
+            if (/^\d+h$/.test(normalized)) {
+                return 'NEW';
+            }
+            // 处理 "Yesterday"
+            if (normalized === 'yesterday') {
+                return '1 day ago';
+            }
+            // 处理 "1d", "2d", "3d" 等格式
+            if (/^\d+d$/.test(normalized)) {
+                const days = parseInt(normalized);
+                return days === 1 ? '1 day ago' : `${days} days ago`;
+            }
+            // 处理 "1 day ago", "2 days ago" 等格式（保持不变）
+            if (normalized.includes('day ago') || normalized.includes('days ago')) {
+                return dateStr; // 保持原格式
+            }
+            // 处理其他可能的格式，尝试提取数字
+            const dayMatch = normalized.match(/(\d+)/);
+            if (dayMatch) {
+                const days = parseInt(dayMatch[1]);
+                return days === 1 ? '1 day ago' : `${days} days ago`;
+            }
+            // 如果无法解析，返回原字符串
+            return dateStr;
+        }
+
+        // 加载所有数据
+        async function loadAllJobs() {
+            try {
+                const sources = [
+                    { name: 'remoteok', url: 'results/remoteok.json' },
+                    { name: 'remoteco', url: 'results/remoteco.json' },
+                    { name: 'weworkremotely', url: 'results/weworkremotely.json' },
+                    { name: 'workingnomads', url: 'results/workingnomads.json' }
+                ];
+
+                for (const source of sources) {
+                    const response = await fetch(source.url);
+                    const jobs = await response.json();
+                    // 标准化数据格式
+                    const normalizedJobs = jobs.map(job => {
+                        const normalized = {
+                            job_title: job.job_title || job.title || '',
+                            job_link: job.job_link || job.job_url || job.url || '',
+                            company: job.company || '',
+                            posted_date: job.posted_date || job.days || job.date || '',
+                            source: source.name,
+                            // location: job.location || ''
+                        };
+                        return normalized;
+                    });
+                    allJobs.push(...normalizedJobs);
+                }
+
+                // 标准化日期格式
+                allJobs.forEach(job => {
+                    job.posted_date = normalizeDate(job.posted_date);
+                });
+
+                // 按发布日期排序（NEW最前，其次天数从小到大）
+                allJobs.sort((a, b) => {
+                    if (a.posted_date === 'NEW' && b.posted_date !== 'NEW') return -1;
+                    if (a.posted_date !== 'NEW' && b.posted_date === 'NEW') return 1;
+                    const getDays = (dateStr) => {
+                        if (!dateStr) return 999;
+                        const match = dateStr.match(/(\d+)/);
+                        return match ? parseInt(match[1]) : 999;
+                    };
+                    return getDays(a.posted_date) - getDays(b.posted_date);
+                });
+
+                filteredJobs = [...allJobs];
+                updateStats();
+                renderJobs();
+                
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                document.getElementById('jobsContainer').innerHTML = `
+                    <div class="no-results">
+                        <h3>Failed to load</h3>
+                        <p>Unable to load job data. Please check your network or refresh the page.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function updateStats() {
+            const uniqueCompanies = new Set(allJobs.map(job => job.company).filter(company => company));
+            document.getElementById('totalJobs').textContent = allJobs.length;
+            document.getElementById('totalCompanies').textContent = uniqueCompanies.size;
+        }
+
+        function renderJobs() {
+            const container = document.getElementById('jobsContainer');
+            
+            if (filteredJobs.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <h3>No matching jobs found</h3>
+                        <p>Try adjusting your search or filters.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const jobsHTML = filteredJobs.map(job => `
+                <div class="job-card" onclick="window.open('${job.job_link}', '_blank')">
+                    <div class="job-header">
+                        <a href="${job.job_link}" class="job-title" target="_blank" onclick="event.stopPropagation()">
+                            ${job.job_title}
+                        </a>
+                        <span class="source-badge source-${job.source}">${getSourceDisplayName(job.source)}</span>
+                    </div>
+                    <div class="job-meta">
+                        <div class="meta-item">
+                            <span class="company"> ${job.company || 'No company info'}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="date">📅 ${job.posted_date}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = jobsHTML;
+        }
+
+        function getSourceDisplayName(source) {
+            const names = {
+                'remoteok': 'RemoteOK',
+                'remoteco': 'Remote.co',
+                'weworkremotely': 'WeWorkRemotely',
+                'workingnomads': 'Working Nomads'
+            };
+            return names[source] || source;
+        }
+
+        function filterJobs() {
+            filteredJobs = allJobs.filter(job => {
+                const matchesSource = currentSourceFilter === 'all' || job.source === currentSourceFilter;
+                const matchesSearch = !currentSearchTerm || 
+                    job.job_title.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
+                    job.company.toLowerCase().includes(currentSearchTerm.toLowerCase());
+                
+                return matchesSource && matchesSearch;
+            });
+            
+            renderJobs();
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value;
+            filterJobs();
+        });
+
+        // 筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentSourceFilter = e.target.dataset.source;
+                filterJobs();
+            });
+        });
+
+        // 页面加载时获取数据
+        loadAllJobs();
+    </script>
+</body>
+</html> 
