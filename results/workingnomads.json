@@ -1,104 +1,134 @@
 [
   {
+    "job_link": "https://www.workingnomads.com/jobs/senior-django-developer-proxify-1021302",
+    "job_title": "Senior Django Developer",
+    "company": "Proxify",
+    "posted_date": "2 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/senior-nextjs-developer-proxify-1021298",
+    "job_title": "Senior Next.js Developer",
+    "company": "Proxify",
+    "posted_date": "2 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/senior-devops-engineer-azure-proxify-1021296",
+    "job_title": "Senior DevOps Engineer (Azure)",
+    "company": "Proxify",
+    "posted_date": "2 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/senior-data-engineer-proxify-1021294",
+    "job_title": "Senior Data Engineer",
+    "company": "Proxify",
+    "posted_date": "2 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/entrepreneurial-apprentice-to-eccentric-millionaire-fun-ecom-co-great-people-flexible-hours-jls-trading-co",
+    "job_title": "Entrepreneurial Apprentice to Eccentric Millionaire @ Fun Ecom Co | Great People & Flexible Hours",
+    "company": "JLS Trading Co.",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/social-media-specialist-wikimedia-foundation-1022481",
+    "job_title": "Social Media Specialist",
+    "company": "Wikimedia Foundation",
+    "posted_date": "1 day ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/social-media-specialist-wikimedia-foundation-1022478",
+    "job_title": "Social Media Specialist",
+    "company": "Wikimedia Foundation",
+    "posted_date": "1 day ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/social-media-specialist-wikimedia-foundation",
+    "job_title": "Social Media Specialist",
+    "company": "Wikimedia Foundation",
+    "posted_date": "1 day ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/people-experience-associate-wikimedia-foundation-1022156",
+    "job_title": "People Experience Associate",
+    "company": "Wikimedia Foundation",
+    "posted_date": "1 day ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/account-manager-xapo-bank-1022151",
+    "job_title": "Account Manager",
+    "company": "Xapo Bank",
+    "posted_date": "1 day ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/customer-success-advisor-xapo-bank-1020591",
+    "job_title": "Customer Success Advisor",
+    "company": "Xapo Bank",
+    "posted_date": "2 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/fund-accountant-xapo-bank",
+    "job_title": "Fund Accountant",
+    "company": "Xapo Bank",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/content-writer-marketing-xapo-bank",
+    "job_title": "Content Writer - Marketing",
+    "company": "Xapo Bank",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/software-support-engineer-canonical",
+    "job_title": "Software Support Engineer",
+    "company": "Canonical",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/software-maintenance-engineer-canonical",
+    "job_title": "Software Maintenance Engineer",
+    "company": "Canonical",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/software-engineer-cloud-sustaining-engineering-canonical",
+    "job_title": "Software Engineer, Cloud - Sustaining Engineering",
+    "company": "Canonical",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/software-engineer-l3-support-canonical",
+    "job_title": "Software Engineer - L3 Support",
+    "company": "Canonical",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/paid-media-analyst-invgate",
+    "job_title": "Paid Media Analyst",
+    "company": "InvGate",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/qa-manual-engineer-sporty-group-1018283",
+    "job_title": "QA Manual Engineer",
+    "company": "Sporty Group",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/director-online-casino-games-sporty-group-1018278",
+    "job_title": "Director - Online Casino Games",
+    "company": "Sporty Group",
+    "posted_date": "3 days ago"
+  },
+  {
+    "job_link": "https://www.workingnomads.com/jobs/data-engineer-wikimedia-foundation",
+    "job_title": "Data Engineer",
+    "company": "Wikimedia Foundation",
+    "posted_date": "6 days ago"
+  },
+  {
     "job_link": "https://www.workingnomads.com/jobs/linux-engineering-manager-optimisation-for-latest-hardware-canonical-1013086",
     "job_title": "Linux Engineering Manager - Optimisation for Latest Hardware",
     "company": "Canonical",
-    "posted_date": "2 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/senior-manager-people-growth-belonging-wikimedia-foundation-1011845",
-    "job_title": "Senior Manager - People Growth & Belonging",
-    "company": "Wikimedia Foundation",
-    "posted_date": "2 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/senior-manager-people-growth-belonging-wikimedia-foundation-1011835",
-    "job_title": "Senior Manager - People Growth & Belonging",
-    "company": "Wikimedia Foundation",
-    "posted_date": "2 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/senior-manager-people-growth-belonging-wikimedia-foundation-1011829",
-    "job_title": "Senior Manager - People Growth & Belonging",
-    "company": "Wikimedia Foundation",
-    "posted_date": "2 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/llm-engineer-sporty-group",
-    "job_title": "LLM Engineer",
-    "company": "Sporty Group",
-    "posted_date": "3 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/site-reliability-engineering-manager-wikimedia-foundation-1009384",
-    "job_title": "Site Reliability Engineering Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "3 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/site-reliability-engineering-manager-wikimedia-foundation-1009380",
-    "job_title": "Site Reliability Engineering Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "3 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/site-reliability-engineering-manager-wikimedia-foundation-1009049",
-    "job_title": "Site Reliability Engineering Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "4 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/site-reliability-engineering-manager-wikimedia-foundation-1009047",
-    "job_title": "Site Reliability Engineering Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "4 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/site-reliability-engineering-manager-wikimedia-foundation",
-    "job_title": "Site Reliability Engineering Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "4 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/marketing-operations-analyst-xapo-bank",
-    "job_title": "Marketing Operations Analyst",
-    "company": "Xapo Bank",
-    "posted_date": "4 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/communications-manager-wikimedia-foundation-1008712",
-    "job_title": "Communications Manager",
-    "company": "Wikimedia Foundation",
-    "posted_date": "4 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/people-experience-associate-wikimedia-foundation",
-    "job_title": "People Experience Associate",
-    "company": "Wikimedia Foundation",
-    "posted_date": "5 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/frontend-engineer-ii-with-webflow-expertise-outliant",
-    "job_title": "Frontend Engineer II (with Webflow expertise)",
-    "company": "Outliant",
-    "posted_date": "5 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/seniorstaff-data-engineer-vrchat",
-    "job_title": "Senior/Staff Data Engineer",
-    "company": "VRChat",
-    "posted_date": "5 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/cs-saas-backend-developer-sporty-group-1003877",
-    "job_title": "CS Saas Backend Developer",
-    "company": "Sporty Group",
-    "posted_date": "7 days ago"
-  },
-  {
-    "job_link": "https://www.workingnomads.com/jobs/risk-graduate-xapo-bank",
-    "job_title": "Risk Graduate",
-    "company": "Xapo Bank",
     "posted_date": "7 days ago"
   }
 ]
